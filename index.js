@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const axios = require('axios'); // For making HTTP requests
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // USSD endpoint (POST request only)
-app.post('/ussd', (req, res) => {
+app.post('/ussd', async (req, res) => {
     const { sessionId, serviceCode, phoneNumber, text } = req.body;
 
     let response = '';
@@ -46,6 +47,21 @@ app.post('/ussd', (req, res) => {
     } else {
         // Invalid input
         response = 'END Invalid input. Please try again.';
+    }
+
+    // If the user selects an option (1, 2, or 3), call the Cloud Function
+    if (text === '1' || text === '2' || text === '3') {
+        try {
+            // Call the Cloud Function to store the response in Firestore
+            await axios.post('https://us-central1-your-project-id.cloudfunctions.net/handleUssdResponse', {
+                phoneNumber,
+                reply: text // Send the selected option (1, 2, or 3)
+            });
+
+            console.log('Response recorded successfully');
+        } catch (error) {
+            console.error('Error calling Cloud Function:', error);
+        }
     }
 
     // Send response back to Africa's Talking
