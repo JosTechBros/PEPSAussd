@@ -5,7 +5,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// USSD endpoint
+// USSD endpoint (POST request only)
 app.post('/ussd', (req, res) => {
     const { sessionId, serviceCode, phoneNumber, text } = req.body;
 
