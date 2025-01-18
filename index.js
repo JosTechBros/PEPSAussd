@@ -4,10 +4,11 @@ const axios = require('axios'); // For making HTTP requests
 
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded form data
 
 // USSD endpoint (POST request only)
 app.post('/ussd', async (req, res) => {
+    // Extract data from URL-encoded form data
     const { sessionId, serviceCode, phoneNumber, text } = req.body;
 
     let response = '';
