@@ -53,7 +53,7 @@ app.post('/ussd', async (req, res) => {
     if (text === '1' || text === '2' || text === '3') {
         try {
             // Call the Cloud Function to store the response in Firestore
-            await axios.post('https://us-central1-your-project-id.cloudfunctions.net/handleUssdResponse', {
+            await axios.post('https://us-central1-pepsa-viktll.cloudfunctions.net/handleUssdResponse', {
                 phoneNumber,
                 reply: text // Send the selected option (1, 2, or 3)
             });
