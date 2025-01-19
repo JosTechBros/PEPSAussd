@@ -14,13 +14,13 @@ app.post('/ussd', async (req, res) => {
 
     if (text === '') {
         // Initial menu
-        response = `CON Thank you. To get a call from Duba Gari, Press 1, to stop, press 2
+        response = `CON Welcome. To subscribe for free and get a call from Duba Gari, Press 1, to stop, press 2
 1. Get a call
 2. STOP
 3. Exit`;
     } else if (text === '1') {
         // User selected "Get a call"
-        response = `END Successfull!!!. You will receive a call from Duba Gari.`;
+        response = `END SUCCESSFULL!!!. You will receive a call from Duba Gari.`;
     } else if (text === '2') {
         // User selected "STOP"
         response = `END UNSUBSCRIBED!!!. You have OPTED OUT of this service.`;
@@ -36,7 +36,7 @@ app.post('/ussd', async (req, res) => {
     if (text === '1' || text === '2' || text === '3') {
         try {
             // Call the Cloud Function to store the response in Firestore
-            await axios.post('https://us-central1-pepsa-viktll.cloudfunctions.net/handleUssdResponse', {
+            await axios.post('https://us-central1-pepsagov.cloudfunctions.net/handleUssdResponse', {
                 phoneNumber,
                 reply: text // Send the selected option (1, 2, or 3)
             });
