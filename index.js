@@ -1,38 +1,35 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const axios = require('axios'); // For making HTTP requests
+const axios = require('axios');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded form data
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // USSD endpoint (POST request only)
 app.post('/ussd', async (req, res) => {
-    // Extract data from URL-encoded form data
     const { sessionId, serviceCode, phoneNumber, text } = req.body;
 
     let response = '';
 
     if (text === '') {
         // Initial menu
-        response = `Thank you. To get a call from Duba Gari, Press 1, to stop, press 2
+        response = `CON Thank you. To get a call from Duba Gari, Press 1, to stop, press 2
 1. Get a call
 2. STOP
 3. Exit`;
     } else if (text === '1') {
         // User selected "Get a call"
-        response = `Successfull!!!. You will receive a call from Duba Gari.`;
-    }
-    else if (text === '2') {
+        response = `END Successfull!!!. You will receive a call from Duba Gari.`;
+    } else if (text === '2') {
         // User selected "STOP"
-        response = `UNSUBSCRIBED!!!. You have OPTED OUT of this service.`;
-    }
-     else if (text === '3') {
+        response = `END UNSUBSCRIBED!!!. You have OPTED OUT of this service.`;
+    } else if (text === '3') {
         // User selected "Exit"
-        response = ' Thank you for using our service.';
+        response = 'END Thank you for using our service.';
     } else {
         // Invalid input
-        response = ' Invalid input. Please try again.';
+        response = 'END Invalid input. Please try again.';
     }
 
     // If the user selects an option (1, 2, or 3), call the Cloud Function
