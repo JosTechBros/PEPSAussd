@@ -15,39 +15,24 @@ app.post('/ussd', async (req, res) => {
 
     if (text === '') {
         // Initial menu
-        response = `CON Welcome to My USSD App
-1. Check Balance
-2. Buy Airtime
+        response = `Thank you. To get a call from Duba Gari, Press 1, to stop, press 2
+1. Get a call
+2. STOP
 3. Exit`;
     } else if (text === '1') {
-        // User selected "Check Balance"
-        response = `CON Your balance is KES 100.
-1. Back to Menu
-2. Exit`;
-    } else if (text === '1*1') {
-        // User selected "Back to Menu" from balance
-        response = `CON Welcome to My USSD App
-1. Check Balance
-2. Buy Airtime
-3. Exit`;
-    } else if (text === '1*2') {
-        // User selected "Exit" from balance
-        response = 'END Thank you for using our service.';
-    } else if (text === '2') {
-        // User selected "Buy Airtime"
-        response = `CON Enter amount to buy airtime:
-1. Back to Menu
-2. Exit`;
-    } else if (text.startsWith('2*')) {
-        // User entered amount for airtime
-        const amount = text.split('*')[1];
-        response = `END You have successfully bought airtime worth KES ${amount}.`;
-    } else if (text === '3') {
+        // User selected "Get a call"
+        response = `Successfull!!!. You will receive a call from Duba Gari.`;
+    }
+    else if (text === '2') {
+        // User selected "STOP"
+        response = `UNSUBSCRIBED!!!. You have OPTED OUT of this service.`;
+    }
+     else if (text === '3') {
         // User selected "Exit"
-        response = 'END Thank you for using our service.';
+        response = ' Thank you for using our service.';
     } else {
         // Invalid input
-        response = 'END Invalid input. Please try again.';
+        response = ' Invalid input. Please try again.';
     }
 
     // If the user selects an option (1, 2, or 3), call the Cloud Function
