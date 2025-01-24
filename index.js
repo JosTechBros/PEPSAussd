@@ -20,10 +20,10 @@ app.post('/ussd', async (req, res) => {
 3. Exit`;
     } else if (text === '1') {
         // User selected "Get a call"
-        response = `END Thank you!. You will receive a call from Duba Gari in January.`;
+        response = `END Thank you! You will receive a call from Duba Gari in January.`;
     } else if (text === '2') {
         // User selected "STOP"
-        response = `END Thank you!. You've been UNSUBSCRIBED.`;
+        response = `END Thank you! You've been UNSUBSCRIBED.`;
     } else if (text === '3') {
         // User selected "Exit"
         response = 'END Thank you for using our service.';
@@ -44,6 +44,7 @@ app.post('/ussd', async (req, res) => {
             console.log('Response recorded successfully');
         } catch (error) {
             console.error('Error calling Cloud Function:', error);
+            // Optionally, you can log the error or handle it in a way that makes sense for your application
         }
     }
 
