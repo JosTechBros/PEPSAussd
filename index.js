@@ -18,7 +18,7 @@ app.post('/ussd', async (req, res) => {
 
     if (text === '') {
         // Initial menu
-        response = `CON Welcome. Are toilets too expensive to get? Our new program makes getting one cheaper and easier. Reply 1 for a call from Duba Gari with details. Reply 2 to stop.
+        response = `CON WELCOME. Our new program makes it easier and cheaper to get a new toilet. Reply 1 for a call from Duba Gari. Reply 2 to stop.
 1. Get a call
 2. STOP
 3. Exit`;
