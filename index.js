@@ -14,16 +14,16 @@ app.post('/ussd', async (req, res) => {
 
     if (text === '') {
         // Initial menu
-        response = `CON Welcome. To subscribe for free and get a call from Duba Gari, Press 1, to stop, press 2
+        response = `CON Welcome. Are toilets too expensive to get? Our new program makes getting one cheaper and easier. Reply 1 for a call from Duba Gari with details. Reply 2 to stop.
 1. Get a call
 2. STOP
 3. Exit`;
     } else if (text === '1') {
         // User selected "Get a call"
-        response = `END SUCCESSFULL!!!. You will receive a call from Duba Gari.`;
+        response = `END Thank you!. You will receive a call from Duba Gari in January.`;
     } else if (text === '2') {
         // User selected "STOP"
-        response = `END UNSUBSCRIBED!!!. You have OPTED OUT of this service.`;
+        response = `END Thank you!. You've been UNSUBSCRIBED.`;
     } else if (text === '3') {
         // User selected "Exit"
         response = 'END Thank you for using our service.';
