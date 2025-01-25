@@ -6,6 +6,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Root endpoint
+app.get('/', (req, res) => {
+    res.send('USSD service is running!');
+});
+
 // USSD endpoint
 app.post('/ussd', async (req, res) => {
     console.log('Received USSD request:', req.body); // Log the request body
