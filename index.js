@@ -28,7 +28,7 @@ app.post('/ussd', async (req, res) => {
 2. STOP
 3. Exit`;
     } else if (text === '1') {
-        response = `END Thank you! You will receive a call from Duba Gari in January.`;
+        response = `END Thank you! You will receive a call from Duba Gari in February.`;
     } else if (text === '2') {
         response = `END Thank you! You've been UNSUBSCRIBED.`;
     } else if (text === '3') {
