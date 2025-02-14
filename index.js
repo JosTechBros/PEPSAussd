@@ -23,12 +23,13 @@ app.post('/ussd', async (req, res) => {
 
     if (text === '') {
         // Initial menu
-        response = `CON DUBA GARI. Our new program makes it easier and cheaper to get a new toilet. Reply 1 for a call from Duba Gari, Reply 2 to stop.
-1. Get a call
-2. STOP
+        response = `CON Reply 1 for a call from Duba-gari with details BY TUE 18 FEB. Reply
+2 to stop.
+1. YES, Get a call
+2. NO, stop
 3. Exit`;
     } else if (text === '1') {
-        response = `END Thank you! You will receive a call from Duba Gari in February.`;
+        response = `END Thank you! We will call you in few weeks with more information.`;
     } else if (text === '2') {
         response = `END Thank you! You've been UNSUBSCRIBED.`;
     } else if (text === '3') {
