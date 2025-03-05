@@ -23,17 +23,16 @@ app.post('/ussd', async (req, res) => {
 
     if (text === '') {
         // Initial menu
-        response = `CON Reply 1 for a call from Duba-gari with details BY TUE 18 FEB. Reply
-2 to stop.
-1. YES, Get a call
-2. NO, stop
-3. Exit`;
+        response = `CON Welcome to PEPSA ussd portal.
+    Press 1 For details of monthly sanitation,
+	Press 2 For guidelines,
+	Press 3 To report issues.`;
     } else if (text === '1') {
-        response = `END Thank you! We will call you in few weeks with more information.`;
+        response = `END The monthly sanitation comes up every ----.`;
     } else if (text === '2') {
-        response = `END Thank you! You've been UNSUBSCRIBED.`;
+        response = `END Guidelines for sanitation ---.`;
     } else if (text === '3') {
-        response = 'END Thank you for using our service.';
+        response = 'END To report an issue, kindly call 080---.';
     } else {
         response = 'END Invalid input. Please try again.';
     }
