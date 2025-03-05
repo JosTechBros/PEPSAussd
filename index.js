@@ -23,16 +23,19 @@ app.post('/ussd', async (req, res) => {
 
     if (text === '') {
         // Initial menu
-        response = `CON Welcome to PEPSA ussd portal.
+        response = `CON Welcome to the PEPSA USSD Portal.
     Press 1 For details of monthly sanitation,
-	Press 2 For guidelines,
+    Press 2 For guidelines,
 	Press 3 To report issues.`;
     } else if (text === '1') {
-        response = `END The monthly sanitation comes up every ----.`;
+        response = `END Monthly sanitation holds last Saturday of every month 6:30am to 10:00am!`;
     } else if (text === '2') {
-        response = `END Guidelines for sanitation ---.`;
+        response = `END  Guidelines
+1.Do not defecate outside; use a toilet.
+2.Do not dump refuse in drainages or on roadsides.
+3.Always participate in the monthly sanitation exercise.`;
     } else if (text === '3') {
-        response = 'END To report an issue, kindly call 080---.';
+        response = 'END To report an issue, kindly call 07044283993.';
     } else {
         response = 'END Invalid input. Please try again.';
     }
