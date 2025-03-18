@@ -26,7 +26,7 @@ app.post('/ussd', async (req, res) => {
         response = `CON Welcome to the PEPSA USSD Portal.
     Press 1 For details of monthly sanitation,
     Press 2 For guidelines,
-	Press 3 To report issues.`;
+    Press 3 To report issues.`;
     } else if (text === '1') {
         response = `END Monthly sanitation holds last Saturday of every month 6:30am to 10:00am!`;
     } else if (text === '2') {
